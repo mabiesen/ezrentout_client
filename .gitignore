@@ -1,0 +1,18 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+*.swp
+
+# rspec failure tracking
+.rspec_status
+SERVICE_FILES/*
+.DS_Store
+auth.file
+*.gem
+Gemfile.lock

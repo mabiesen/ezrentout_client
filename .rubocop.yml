@@ -1,0 +1,41 @@
+AllCops:
+  TargetRubyVersion: 1.9
+
+  Exclude:
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'spec/**/*'
+    - 'vendor/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 35
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/ModuleLength:
+  Max: 200
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Layout/AlignHash:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Style/Alias:
+  Enabled: false
