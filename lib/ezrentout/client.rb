@@ -1,11 +1,10 @@
-
-
+require File.join(File.dirname(__FILE__), 'client/orders')
 require 'faraday'
 require 'faraday_middleware'
 
 module EZRentout
   class << self
-    attr_accessor :base_url, :user_name, :password
+    attr_accessor :base_url, :token
     attr_writer :client
 
     def make_request(uri, verb = :get, args = {})
@@ -23,12 +22,10 @@ module EZRentout
       make_request(uri, :get, args)
     end
 
-    private
-
     def client
-      @client ||= Faraday.new(base_url) do |conn|
+      @client ||= Faraday.new(base_url | "https://lightmodifiersrental.ezrentout.com") do |conn|
         conn.request :json
-        conn.basic_auth(user_name, password)
+        conn.token_auth(token)
         conn.adapter :net_http
       end
     end
