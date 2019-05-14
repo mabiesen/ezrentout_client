@@ -16,6 +16,7 @@ module EZRentout
       end
 
       json = JSON.parse(response.body)
+      puts json
 
       Response.new(json['result'], json['errors'], response.body)
     end
@@ -25,7 +26,7 @@ module EZRentout
     end
 
     def client
-      @client ||= Faraday.new(base_url | "https://lightmodifiersrental.ezrentout.com") do |conn|
+      @client ||= Faraday.new(base_url || "https://lightmodifiersrental.ezrentout.com", :ssl => false) do |conn|
         conn.request :json
         conn.token_auth(token)
         conn.adapter :net_http
