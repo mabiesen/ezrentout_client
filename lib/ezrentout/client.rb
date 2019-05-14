@@ -11,7 +11,7 @@ module EZRentout
 
     def make_request(uri, verb = :get, args = {})
       response = client.send(verb, uri, args) do |request|
-        request.body = args.to_json unless verb == :get
+        request.body = args.to_json
         request.headers['Content-Type'] = 'application/json'
       end
 
@@ -26,7 +26,7 @@ module EZRentout
     end
 
     def client
-      @client ||= Faraday.new(base_url || "https://lightmodifiersrental.ezrentout.com", :ssl => false) do |conn|
+      @client ||= Faraday.new(base_url || "https://lightmodifiersrental.ezrentout.com", :ssl => {:verify => false}) do |conn|
         conn.request :json
         conn.token_auth(token)
         conn.adapter :net_http
