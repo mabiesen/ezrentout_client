@@ -1,4 +1,6 @@
 require File.join(File.dirname(__FILE__), 'client/orders')
+require File.join(File.dirname(__FILE__), 'client/response')
+
 require 'faraday'
 require 'faraday_middleware'
 
