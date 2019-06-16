@@ -2,8 +2,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-def get_page_orders(page=nil)
-  uri = URI.parse("https://lightmodifiersrental.ezrentout.com/baskets.api?page=#{page || 1}")
+def get_page_orders(page=1)
+  uri = URI.parse("https://lightmodifiersrental.ezrentout.com/baskets.api?page=#{page}")
   request = Net::HTTP::Get.new(uri)
   request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
   request.set_form_data(
@@ -31,6 +31,7 @@ def get_all_orders
   return_array = []
   ctr = 0
   loop do
+    sleep(0.5)
     ctr = ctr + 1
     res = get_page_orders(ctr)
     unless res['baskets'].empty?
@@ -39,5 +40,5 @@ def get_all_orders
       break
     end
   end
-  return_array
+  return_array.flatten
 end
