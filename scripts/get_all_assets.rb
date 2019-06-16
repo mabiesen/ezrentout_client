@@ -24,7 +24,19 @@ def get_page_assets(page=nil)
   JSON.parse(response.body)
 end
 
+
 # should determine pages, iterate all pages, return response
 def get_all_assets
-  get_page_assets['assets']
+  return_array = []
+  ctr = 0
+  loop do
+    ctr = ctr + 1
+    res = get_page_orders(ctr)
+    unless res['assets'].empty?
+      return_array.push(res['assets'])
+    else
+      break
+    end
+  end
+  return_array
 end

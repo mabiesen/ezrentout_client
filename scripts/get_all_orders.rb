@@ -21,7 +21,23 @@ def get_page_orders(page=nil)
   JSON.parse(response.body)
 end
 
+# testing shows you just get a empty basket
+def try_to_break_page_count
+  get_page_orders(150) 
+end
+
 # should determine number of pages and query to get all orders
 def get_all_orders
-  get_page_orders['baskets']
+  return_array = []
+  ctr = 0
+  loop do
+    ctr = ctr + 1
+    res = get_page_orders(ctr)
+    unless res['baskets'].empty?
+      return_array.push(res['baskets'])
+    else
+      break
+    end
+  end
+  return_array
 end
