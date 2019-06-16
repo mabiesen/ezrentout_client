@@ -17,3 +17,4 @@ SERVICE_FILES/*
 auth.file
 *.gem
 Gemfile.lock
+.creds.yml
