@@ -94,6 +94,7 @@ begin
         puts "DURATION UNIT: #{fa_duration_unit}"
         puts "VENDOR CUT(based on rate and duration): #{vendor_amount}"
         puts "\n\n\n"
+        csv_list.push([created_at, employee_id, order_id, discount_rate, asset_name, fa_price, weekrate_amount, dayrate_amount, fa_duration_amount, fa_duration_unit, vendor_amount]) 
       end
     end
   end
@@ -103,7 +104,7 @@ rescue => e
 end
 
 
-headers = %w[CREATED_AT CREATED_BY ORDER_ID ORDER_DISCOUNT(%) ITEM_NAME VENDOR_NAME PRICE PER_WEEK_RATE PER_DAY_RATE DURATION_AMOUNT DURATION_UNIT VENDOR_CUT]
+headers = %w[CREATED_AT CREATED_BY ORDER_ID ORDER_DISCOUNT(%) ITEM_NAME PRICE PER_WEEK_RATE PER_DAY_RATE DURATION_AMOUNT DURATION_UNIT VENDOR_CUT]
 
 filename = "#{Date.today.to_s}_order_report"
 
