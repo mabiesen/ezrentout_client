@@ -18,3 +18,4 @@ auth.file
 *.gem
 Gemfile.lock
 .creds.yml
+gd_config.json
