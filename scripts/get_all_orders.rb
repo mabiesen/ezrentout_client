@@ -5,7 +5,7 @@ require 'json'
 def get_page_orders(page=1)
   uri = URI.parse("https://lightmodifiersrental.ezrentout.com/baskets.api?page=#{page}")
   request = Net::HTTP::Get.new(uri)
-  request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
+  request["Token"] = ""
   request.set_form_data(
     "filters[all]" => "all",
   )
