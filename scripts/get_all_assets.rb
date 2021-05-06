@@ -5,7 +5,7 @@ require 'json'
 def get_page_assets(page=1)
   uri = URI.parse("https://lightmodifiersrental.ezrentout.com/assets.api?page=#{page}")
   request = Net::HTTP::Get.new(uri)
-  request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
+  request["Token"] = ""
   request.set_form_data(
     "include_custom_fields" => "true",
     "show_document_details" => "true",
@@ -28,7 +28,7 @@ end
 def get_specific_asset(asset_id)
   uri = URI.parse("https://light_modifiers_rental.ezrentout.com/assets/1.api")
   request = Net::HTTP::Get.new(uri)
-  request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
+  request["Token"] = ""
   request.set_form_data(
     "include_custom_fields" => "true",
     "show_document_details" => "true",
