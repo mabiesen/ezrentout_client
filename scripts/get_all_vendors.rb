@@ -5,7 +5,7 @@ require 'json'
 def get_page_vendors(page=1)
   uri = URI.parse("https://lightmodifiersrental.ezrentout.com/assets/vendors.api?page=#{page}")
   request = Net::HTTP::Get.new(uri)
-  request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
+  request["Token"] = ""
   request.set_form_data(
     "include_custom_fields" => "true",
   )
@@ -23,7 +23,7 @@ end
 def get_specific_vendor(vendor_id)
   uri = URI.parse("https://lightmodifiersrental.ezrentout.com/vendors/#{vendor_id}.api")
   request = Net::HTTP::Get.new(uri)
-  request["Token"] = "8eaf20ad3f8a61b6e5685f188122ec25"
+  request["Token"] = ""
   request.set_form_data(
     "include_custom_fields" => "true",
   )
